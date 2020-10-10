@@ -1,4 +1,4 @@
-# discord-datamine-bot
+# discord-js-datamine
 Pulls from https://github.com/DJScias/Discord-Datamining/ and outputs to multiple channels
 
 ## How To Use?
@@ -7,7 +7,8 @@ Pulls from https://github.com/DJScias/Discord-Datamining/ and outputs to multipl
 3) Insert bot token, github username, and password into `.env`
 4) Rename `commits.example.json` to `commits.json`
 5) Rename `datamine.example.json` to `datamine.json`
-6) Start bot using `node index.js`
+6) Rename `config.example.json` to `config.json`
+7) Start bot using `node index.js`
 
 ## How to Get Password?
 1) Visit https://github.com/settings/tokens/new
@@ -15,3 +16,9 @@ Pulls from https://github.com/DJScias/Discord-Datamining/ and outputs to multipl
 3) Select `public_repo`
 4) Generate Token
 5) Copy token and insert into `.env`
+
+
+#### Note
+
+This is a modified fork of
+https://github.com/ItsRauf/discord-datamine-bot

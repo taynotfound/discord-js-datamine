@@ -13,7 +13,7 @@ const writeToDatamine = require("./src/helpers/writeToDatamine");
 
 
 /*
-Init function - Bot goes through all channels that are saved in datamine.json and checks if they have the newest Update. *repeats all 5 minutes*
+Init function - Bot goes through all channels that are saved in datamine.json and checks if they have the newest Update. 
 */
 async function __init() {
   try {
@@ -97,10 +97,10 @@ async function __init() {
             });
           }
           console.log(`[DEBUG] Sent newest Update to Channel ${channel} in Guild ${chan.guild}!`)
-          chan.setTopic(`Discord Datamine Feed - Last Checked ${new Date.toString} - © ItsRauf, tayron1 2019 - 2020 - Invite the Bot: https://discord.com/oauth2/authorize?client_id=614539702556557381&scope=bot&permissions=537193552`)
+          chan.setTopic(`Discord Datamine Feed - Last Checked ${new Date} - © ItsRauf, tayron1 2019 - 2020 - Invite the Bot: https://discord.com/oauth2/authorize?client_id=614539702556557381&scope=bot&permissions=537193552`)
           }else{
             console.log(`[DEBUG] Skipped Channel ${channel} in Guild ${chan.guild}! Already has the newest Commit`)
-            chan.setTopic(`Discord Datamine Feed - Last Checked ${new Date.toString} - © ItsRauf, tayron1 2019 - 2020 - Invite the Bot: https://discord.com/oauth2/authorize?client_id=614539702556557381&scope=bot&permissions=537193552`)
+            chan.setTopic(`Discord Datamine Feed - Last Checked ${new Date} - © ItsRauf, tayron1 2019 - 2020 - Invite the Bot: https://discord.com/oauth2/authorize?client_id=614539702556557381&scope=bot&permissions=537193552`)
 
           }
           let lrms = new Date().getTime() - lastreboot.getTime() 
@@ -128,7 +128,7 @@ End init Function
 */
 
 /*
-Ready event - Just logs that its alive and runs the init function. Defines that the init function runs every 5 mins
+Ready event - Just logs that its alive and runs the init function. Defines that the init function runs every ... mins
 */
 bot.once("ready", () => {
   console.log(bot.user.username + " is alive!");
