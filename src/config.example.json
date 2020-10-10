@@ -1,4 +1,5 @@
 {
     "prefix":"data.",
-    "interval":"5m" 
+    "interval":"5m" ,
+    "statcord_enabled": "false"
 }

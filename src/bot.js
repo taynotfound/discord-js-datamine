@@ -15,7 +15,7 @@ bot.on("message", async (msg) => {
   if (msg.content.startsWith(config.prefix)) {
     const cmd = msg.content.split(config.prefix)[1].split(" ")[0];
 
-
+    bot.statcord.postCommand(cmd, msg.author.id);
     //Here are all Commands and here is what to do everytime a command runs
     switch (cmd) {
       case "subscribe":

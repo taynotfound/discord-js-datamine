@@ -10,7 +10,30 @@ const getCommits = require("./src/helpers/getCommits");
 const handleError = require("./src/helpers/handleError");
 const parseBuildNumber = require("./src/helpers/parseBuildNumber");
 const writeToDatamine = require("./src/helpers/writeToDatamine");
+let statcord; 
+if(config.statcord_enabled){
+  const Statcord = require("statcord.js");
+let client = bot
+statcord = new Statcord.Client({
+  key: process.env.STATCORD,
+  client,
+  postCpuStatistics: true, /* Whether to post CPU statistics or not, defaults to true */
+  postMemStatistics: true, /* Whether to post memory statistics or not, defaults to true */
+  postNetworkStatistics: true /* Whether to post network statistics or not, defaults to true */
+});
+bot.statcord = statcord
+statcord.on("autopost-start", () => {
+  // Emitted when statcord autopost starts
+  console.log("[STATCORD] Started autopost");
+});
 
+statcord.on("post", status => {
+  // status = false if the post was successful
+  // status = "Error message" or status = Error if there was an error
+  if (!status) console.log("[STATCORD] Successful post");
+  else console.error(status);
+});
+}
 
 /*
 Init function - Bot goes through all channels that are saved in datamine.json and checks if they have the newest Update. 
@@ -136,6 +159,7 @@ bot.once("ready", () => {
   __init().catch((err) => console.error(err));
   setInterval(__init, ms(config.interval)); // Makes a interval to run the init function
   bot.user.setActivity(`Loading... Getting Information...`)
+  if(config.statcord_enabled){     statcord.autopost();}
 });
 
 // Logs the bot in with the Token that is given in the .env file
